@@ -9,6 +9,7 @@ class baseModel(models.Model):
     class Meta:
         abstract = True
 
+
 class product(baseModel):
     product_name = models.CharField(max_length=100)
     product_slug = models.SlugField(unique=True)
@@ -17,8 +18,10 @@ class product(baseModel):
     product_demo_price = models.IntegerField(default=0)
     product_quantity = models.CharField(null=True)
 
+
 class productMetaInformation(baseModel):
     product = models.OneToOneField(product,on_delete=models.CASCADE)
+ 
     
 class productImages(baseModel):
     product_images = models.ImageField(upload_to='products')
